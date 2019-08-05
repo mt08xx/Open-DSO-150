@@ -9,7 +9,7 @@
   * inserted by the user or by software development tools
   * are owned by their respective copyright owners.
   *
-  * COPYRIGHT(c) 2018 STMicroelectronics
+  * COPYRIGHT(c) 2019 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -36,12 +36,11 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
-#include <main.hpp>
+#include "main.h"
 #include "stm32f1xx_hal.h"
 
-#include "Open-DSO-150.hpp"
-
 /* USER CODE BEGIN Includes */
+#include "Open-DSO-150.hpp"
 
 /* USER CODE END Includes */
 
@@ -73,7 +72,7 @@ static void MX_TIM4_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM2_Init(void);
 
-extern "C" void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
                                 
 
 /* USER CODE BEGIN PFP */
