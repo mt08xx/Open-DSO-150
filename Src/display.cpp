@@ -19,9 +19,9 @@ extern uint32_t samplingTime;
 
 int8_t bitOld[GRID_WIDTH] = {0};
 
-bool fade_color_clear = false;
-bool cDisplayed = false;
-bool paintLabels = false;  // repaint the labels on screen in draw loop
+static bool fade_color_clear = false;
+static bool cDisplayed = false;
+static bool paintLabels = false;  // repaint the labels on screen in draw loop
 
 const char* cplNames[] = {"GND","AC","DC"};
 const char* functionNames[] = {"SERIAL","LOAD","SAVE","AUTOCAL"};
@@ -32,18 +32,18 @@ const char* rngNames[] = {"20V","10V","5V","2V","1V","0.5V","0.2V","0.1V","50mV"
 const char* tbNames[] = {"20 uS","30 uS","50 uS","0.1 mS","0.2 mS","0.5 mS","1 mS","2 mS","5 mS","10 mS","20 mS","50 mS","LOOP"};
 
 // grid variables
-uint8_t hOffset = (TFT_WIDTH - GRID_WIDTH)/2;
-uint8_t vOffset = (TFT_HEIGHT - GRID_HEIGHT)/2;
-uint8_t dHeight = GRID_HEIGHT/8;
+static const uint8_t hOffset = (TFT_WIDTH - GRID_WIDTH)/2;
+static const uint8_t vOffset = (TFT_HEIGHT - GRID_HEIGHT)/2;
+static const uint8_t dHeight = GRID_HEIGHT/8;
 
 uint8_t xZoom;
 t_Stats wStats;
-uint32_t triggertimer = 0;
+static uint32_t triggertimer = 0;
 
 const uint16_t sampleUs[] =   {20,  30, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000,0};
 
 // rendered waveform data is stored here for erasing
-int16_t ch1Old[GRID_WIDTH] = {0};
+static int16_t ch1Old[GRID_WIDTH] = {0};
 uint8_t currentFocus = L_timebase;
 
 
